@@ -47,14 +47,14 @@ Gráfico Inferencia Casual
 
 ### 4. **Dashboard de Acompanhamento**
 
-Foi criado um **dashboard interativo no Google Sheets** para monitorar a demanda e possibilitar análises rápidas e atualizadas, permitindo identificar padrões sazonais, horários de pico e o efeito de diferentes condições climáticas na procura por bicicletas.
+Foi criado um **dashboard interativo no Excel** para monitorar a demanda e possibilitar análises rápidas e atualizadas, permitindo identificar padrões sazonais, horários de pico e o efeito de diferentes condições climáticas na procura por bicicletas.
 
 ---
 
 ## **Tecnologias Utilizadas**
 
 * **Python:** Pandas, NumPy, Matplotlib, Seaborn, DoWhy
-* **Google Sheets:** Dashboard interativo para acompanhamento
+* **Google Excel:** Dashboard interativo para acompanhamento
 * **Análise Estatística:** Testes não paramétricos, probabilidade condicional e inferência causal
 
 ---

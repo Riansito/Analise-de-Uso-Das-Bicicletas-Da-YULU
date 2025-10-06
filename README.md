@@ -1,82 +1,84 @@
-# **Relatório de Análise de Dados: Padrões de Uso das Bicicletas Compartilhadas Yulu**
 
-## **Introdução e Objetivos**
+# Análise de Demanda de Bicicletas Elétricas - Yulu
 
-Este projeto teve como objetivo principal investigar os padrões de utilização do sistema de bicicletas compartilhadas Yulu, buscando compreender como diferentes fatores influenciam a demanda pelo serviço. Através de uma análise abrangente dos dados históricos, buscamos responder a perguntas cruciais para o negócio:
+## **Introdução / Problema de Negócio**
 
-- Como a demanda varia ao longo do ano?
-- Quais são os horários de maior e menor utilização?
-- Qual o perfil predominante dos usuários?
-- Como as condições climáticas afetam o uso do serviço?
+Este projeto tem como objetivo analisar a **demanda por bicicletas elétricas compartilhadas da Yulu**, uma das maiores provedoras de micromobilidade da Índia. A empresa, que visa reduzir a congestão urbana e tornar os deslocamentos mais sustentáveis, enfrenta atualmente **queda significativa em suas receitas**.
 
-Esta análise foi conduzida utilizando técnicas de exploração de dados, estatística descritiva e visualização, com o propósito de fornecer insights acionáveis para a equipe de operações, marketing e planejamento estratégico da Yulu.
+O desafio do negócio é identificar **quais fatores influenciam a demanda** por bicicletas e como esses elementos podem ser utilizados para **otimizar a alocação da frota, planejar campanhas de incentivo e melhorar a eficiência operacional**.
 
-## **Metodologia e Abordagem Analítica**
+---
 
-Para alcançar nossos objetivos, realizamos uma série de análises complementares:
+## **Passo a Passo da Análise**
 
-1. **Análise Temporal**:
-   - Sazonalidade ao longo do ano
-   - Padrões diários e horários
-   - Comparação entre dias úteis e fins de semana
+### 1. **Feature Engineering**
 
-2. **Análise de Segmentação**:
-   - Comportamento de usuários registrados versus casuais
-   - Diferenças por tipo de dia (úteis, feriados, fins de semana)
+Foram criadas novas variáveis e transformações para enriquecer a análise:
 
-3. **Análise de Fatores Externos**:
-   - Impacto das condições meteorológicas
-   - Relação com temperatura e umidade
+* **Novas variáveis temporais:** mês, dia da semana e horário.
+* **Transformação de variáveis numéricas:** Estação do ano e condições climáticas foram codificadas para melhor análise.
+* **Tradução e padronização das colunas** para facilitar interpretação e visualização dos dados.
 
-4. **Análise de Correlações**:
-   - Identificação de relações entre variáveis
-   - Padrões ocultos nos dados
+### 2. **Análise Exploratória de Dados (EDA)**
 
-Utilizamos ferramentas como Python (Pandas, Matplotlib, Seaborn) para processamento e visualização dos dados, garantindo que cada análise fosse rigorosa e reprodutível.
+* **Análise univariada:** Identificação de distribuições, outliers e medidas centrais (mediana e média).
+* **Análise bivariada:** Exploração de relações entre variáveis, como temperatura, estação do ano, dia da semana e condições climáticas em relação à demanda por bicicletas.
+* **Análise temporal:** Investigação de **sazonalidades e padrões ao longo do tempo**, como picos de uso por estação do ano, mês e dia da semana, permitindo identificar períodos de maior e menor demanda.
 
-## **Dicionário Completo de Dados**
+Gráficos EDA(Excemplos)
 
-Para garantir a clareza na interpretação dos resultados, apresentamos abaixo o detalhamento completo das variáveis analisadas:
+*Análise Univariada*
+!["Analise univariada"](Imagens/Analise_Univariada_Cat_YULU.png)
+*Análise Biariada*
+!["Analise Bivariada"](Imagens/Analise_Bivariada_Cat_YULU.png)
 
-| **Variável**       | **Descrição Detalhada**                                                                 | **Tipo**      | **Valores/Intervalos**                     |
-|--------------------|----------------------------------------------------------------------------------------|---------------|--------------------------------------------|
-| **datetime**       | Carimbo de data e hora exata do registro                                              | DateTime      | Formato: YYYY-MM-DD HH:MM:SS              |
-| **season**         | Representação das estações do ano                                                     | Categórica    | 1: Primavera, 2: Verão, 3: Outono, 4: Inverno |
-| **holiday**        | Indica se o dia era feriado                                                           | Binária       | 0: Não, 1: Sim                             |
-| **workingday**     | Indica se o dia era útil (não-fim de semana, não-feriado)                             | Binária       | 0: Não, 1: Sim                             |
-| **weather**        | Condições climáticas no momento do registro                                           | Categórica    | 1: Limpo, 2: Nublado, 3: Chuva leve, 4: Chuva forte |
-| **temp**           | Temperatura ambiente em graus Celsius                                                 | Contínua      | Escala em °C                               |
-| **atemp**          | Temperatura aparente/sensação térmica em graus Celsius                                | Contínua      | Escala em °C                               |
-| **humidity**       | Umidade relativa do ar em porcentagem                                                 | Contínua      | 0-100%                                     |
-| **windspeed**      | Velocidade do vento em km/h                                                           | Contínua      | Valores positivos                          |
-| **casual**         | Quantidade de aluguéis por usuários não registrados                                   | Discreta      | Inteiros não-negativos                     |
-| **registered**     | Quantidade de aluguéis por usuários registrados                                       | Discreta      | Inteiros não-negativos                     |
-| **count**          | Total de aluguéis (soma de usuários casuais e registrados)                           | Discreta      | Inteiros não-negativos                     |
+### 3. **Análise Estatística**
 
-## **Aplicações e Impacto Potencial**
+Foram aplicadas diversas técnicas para aprofundar o entendimento da relação entre variáveis e demanda:
 
-Os resultados desta análise possuem diversas aplicações práticas para o negócio:
+* **Probabilidade condicional:** Avaliação da chance de a demanda estar acima da mediana considerando diferentes fatores, como estação do ano, feriados, dias de trabalho e condições climáticas.
+* **Testes estatísticos não paramétricos:** Teste de Kruskal-Wallis e outros para verificar se diferenças observadas eram estatisticamente significativas, considerando a assimetria dos dados.
+* **Inferência causal (DoWhy):** Avaliação do efeito causal de variáveis como condições climáticas e tempo limpo sobre a demanda, com testes de robustez e placebo para validar os resultados.
 
-**1. Otimização Operacional:**
-   - Planejamento inteligente da frota com base nos padrões sazonais e horários identificados
-   - Programação de manutenção preventiva durante períodos de baixa demanda
-   - Ajuste na distribuição geográfica das bicicletas
+Gráfico Inferencia Casual
 
-**2. Estratégias de Marketing:**
-   - Desenvolvimento de campanhas segmentadas por perfil de usuário
-   - Criação de programas de fidelidade e incentivos
-   - Personalização de comunicações com base no comportamento dos usuários
+*Inferencia Casual*
+!["Inferencia_Casual](Imagens/causal_model.png)
 
-**3. Planejamento Estratégico:**
-   - Projeções de demanda em diferentes cenários
-   - Identificação de oportunidades de expansão
-   - Avaliação de impacto de eventos especiais
+### 4. **Dashboard de Acompanhamento**
 
-**4. Experiência do Usuário:**
-   - Melhoria na disponibilidade nos horários e locais de maior demanda
-   - Desenvolvimento de funcionalidades personalizadas
-   - Antecipação de necessidades com base nos padrões identificados
+Foi criado um **dashboard interativo no Google Sheets** para monitorar a demanda e possibilitar análises rápidas e atualizadas, permitindo identificar padrões sazonais, horários de pico e o efeito de diferentes condições climáticas na procura por bicicletas.
 
-Os resultados completos, com todas as descobertas específicas e visualizações, estão disponíveis no notebook de análise anexo a este relatório. Cada seção do código está devidamente comentada para facilitar a compreensão e reprodução da análise.
+---
 
-Esta investigação representa um passo importante na transformação de dados brutos em insights acionáveis, proporcionando à Yulu uma base sólida para decisões estratégicas fundamentadas.
+## **Tecnologias Utilizadas**
+
+* **Python:** Pandas, NumPy, Matplotlib, Seaborn, DoWhy
+* **Google Sheets:** Dashboard interativo para acompanhamento
+* **Análise Estatística:** Testes não paramétricos, probabilidade condicional e inferência causal
+
+---
+
+## **Conclusões do Projeto**
+
+* **Principais fatores que aumentam a demanda:**
+
+  * Estações quentes (verão e outono)
+  * Dias com **céu limpo**
+  * Temperatura e sensação térmica mais altas
+  * Horários de pico (7h–20h)
+  * Padrões sazonais claros ao longo do ano (identificados na análise temporal)
+
+* **Fatores com influência mínima ou não significativa:**
+
+  * Feriados
+  * Dias de trabalho
+
+* **Recomendações:**
+
+  * Priorizar manutenção, distribuição e campanhas de incentivo nos **dias de clima favorável, horários de pico e períodos de maior demanda sazonal**.
+  * Incorporar **temperatura, sensação térmica e clima** em modelos preditivos de demanda.
+  * Evitar basear estratégias apenas em feriados ou dias úteis, já que seu impacto é limitado.
+
+Com isso, o projeto fornece **insights acionáveis** para otimizar o uso da frota, planejar operações e melhorar a experiência dos usuários de bicicletas elétricas da Yulu.
+

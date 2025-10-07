@@ -49,6 +49,8 @@ Gráfico Inferencia Casual
 
 Foi criado um **dashboard interativo no Excel** para monitorar a demanda e possibilitar análises rápidas e atualizadas, permitindo identificar padrões sazonais, horários de pico e o efeito de diferentes condições climáticas na procura por bicicletas.
 
+Dashboard
+!["Deshboard_Yulu](Imagens/Dashboard.png)
 ---
 
 ## **Tecnologias Utilizadas**

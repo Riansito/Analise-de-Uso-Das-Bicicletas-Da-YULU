@@ -27,10 +27,12 @@ Foram criadas novas variáveis e transformações para enriquecer a análise:
 
 Gráficos EDA(Excemplos)
 
+
 *Análise Univariada*
-!["Analise univariada"](Imagens/Analise_Univariada_Cat_YULU.png)
+<img width="1320" height="701" alt="Analise_Univariada_Cat_YULU" src="https://github.com/user-attachments/assets/087ed826-20b6-4810-b8c1-57a44a1c5c9e" />
 *Análise Biariada*
-!["Analise Bivariada"](Imagens/Analise_Bivariada_Cat_YULU.png)
+<img width="1323" height="519" alt="Analise_Bivariada_Cat_YULU" src="https://github.com/user-attachments/assets/b2417e9c-f3a1-4cae-aa8a-fc991cc26b89" />
+
 
 ### 3. **Análise Estatística**
 
@@ -43,14 +45,15 @@ Foram aplicadas diversas técnicas para aprofundar o entendimento da relação e
 Gráfico Inferencia Casual
 
 *Inferencia Casual*
-!["Inferencia_Casual](Imagens/causal_model.png)
+<img width="800" height="600" alt="causal_model" src="https://github.com/user-attachments/assets/5dc78ee2-f074-4216-a4e3-d006d00790dc" />
 
 ### 4. **Dashboard de Acompanhamento**
 
 Foi criado um **dashboard interativo no Excel** para monitorar a demanda e possibilitar análises rápidas e atualizadas, permitindo identificar padrões sazonais, horários de pico e o efeito de diferentes condições climáticas na procura por bicicletas.
 
 Dashboard
-!["Deshboard_Yulu](Imagens/Dashboard.png)
+<img width="1789" height="778" alt="Dashboard" src="https://github.com/user-attachments/assets/04269ca0-8add-4670-8bac-424991168236" />
+
 ---
 
 ## **Tecnologias Utilizadas**

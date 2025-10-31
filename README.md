@@ -85,5 +85,5 @@ Dashboard
   * Incorporar **temperatura, sensação térmica e clima** em modelos preditivos de demanda.
   * Evitar basear estratégias apenas em feriados ou dias úteis, já que seu impacto é limitado.
 
-Com isso, o projeto fornece **insights acionáveis** para otimizar o uso da frota, planejar operações e melhorar a experiência dos usuários de bicicletas elétricas da Yulu.
+Com isso, o projeto fornece **insights acionáveis** para otimizar o uso da frota, planejar operações e melhorar a experiência dos usuários de bicicletas elétricas da Yulu. Para saber mais das Análises feitas, vá na pasta Notebooks onde vair todo o processo da análise exploratoria dos dados, apresentando as descobertas e estratégias.
 
